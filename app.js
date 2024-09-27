@@ -1,8 +1,11 @@
 //  const FirstName = "Andrii"
-//  FirstName = "Ivan"
-//  console.log("Hello ", FirstName)
+//  const Age = "35 "
+//  const Country = "Ukraine "
+//  console.log("Hello ", FirstName, Age, Country)
 
 let FirstName = "Andrii"
-FirstName = "Andrii Bezkhlibnyi, 35 yers old, from Ukraine"
+FirstName = "Andrii Bezkhlibnyi"
+Age = "35 "
+Country = "Ukraine"
 
-console. log("Hello ", FirstName)
+console. log("Hello ", FirstName, Age, Country)
