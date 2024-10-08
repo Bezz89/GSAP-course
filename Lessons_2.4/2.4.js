@@ -1,4 +1,4 @@
-const getAllServicePrices = function(servicePrice1, servicePrice2) {
+const getAllServicePrices = function() {
     return servicePrice1 + servicePrice2;
 };
 
@@ -7,21 +7,21 @@ let servicePrice2 = 3000;
 let allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
 console.log("Стоимость всех дополнительных услуг:", allServicePrices);
 
-function getFullPrice(screenPrice, allServicePrices) {
+function getFullPrice() {
     return screenPrice + allServicePrices;
 }
 let screenPrice = 15000;
 let fullPrice = getFullPrice(screenPrice, allServicePrices);
 console.log("Полная стоимость проекта:", fullPrice);
 
-function getTitle(titleProject) {
+function getTitle() {
     return titleProject.charAt(0).toUpperCase() + titleProject.slice(1).toLowerCase();
 }
 let titleProject = "ОценКа Стоимости";
-let formattedTitleProject = getTitle(titleProject);
-console.log("Отформатированное название проекта:", formattedTitleProject);
+let TitleProject = getTitle(titleProject);
+console.log("Отформатированное название проекта:", TitleProject);
 
-function getServicePercentPrices(fullPrice, percentage) {
+function getServicePercentPrices() {
     let servicePercentPrice = fullPrice - (fullPrice * percentage / 100);
     return Math.round(servicePercentPrice); // Округляем результат
 }
@@ -29,7 +29,7 @@ let percentage = 15;
 let servicePercentPrice = getServicePercentPrices(fullPrice, percentage);
 console.log("Стоимость после вычета процента подрядчику:", servicePercentPrice);
 
-function getRollbackMessage(fullPrice) {
+function getRollbackMessage() {
     if (fullPrice > 50000) {
         console.log("Сделаем скидку 10%");
     } else if (fullPrice > 20000 && fullPrice <= 50000) {
@@ -42,4 +42,3 @@ function getRollbackMessage(fullPrice) {
         console.log("Что-то пошло не так");
     }
 }
-getRollbackMessage(fullPrice);

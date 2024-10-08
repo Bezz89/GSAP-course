@@ -75,6 +75,7 @@ console. log(fullPrice)
 
 let percentage = 15
 let servicePercentPrice = fullPrice - (fullPrice * (percentage / 100));
+
 servicePercentPrice = Math.round(servicePercentPrice);
 console.log(servicePercentPrice);
 
