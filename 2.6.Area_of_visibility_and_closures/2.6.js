@@ -1,3 +1,4 @@
+
 const gameBotFunction = function () {
     // Функция для генерации случайного числа
     const randomGenerate = function (min, max) {
