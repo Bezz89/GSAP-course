@@ -1,37 +1,4 @@
-<script src="main.js" async></script>
-<script src="lazy-load.js" async></script>
-<script src="script.js" defer></script>
-
-
-<style type="text/css">
-.w-webflow-badge {
-display: none !important;
-}
-</style>
-<script src="script.js" async></script>
-<style>
-  html { font-size: calc(-0.0009573361082204634rem + 1.1121748178980226vw); }
-  @media screen and (max-width:1440px) { html { font-size: calc(-0.0009573361082205745rem + 1.1121748178980229vw); } }
-  @media screen and (max-width:479px) { html { font-size: calc(0.0012019230769234612rem + 4.26153846153846vw); } }
-  @media screen and (max-width:375px) { html { font-size: calc(-0.00267379679144385rem + 4.27807486631016vw); } }
-</style>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js">
-</script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js">
-</script>
-<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js">
-</script> 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js">
-</script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js">
-</script> 
-
-//mobile
-
-
- let MatchSetup = gsap.matchMedia();
+let MatchSetup = gsap.matchMedia();
 MatchSetup.add("(min-width: 800px)", () => {
   console.log("Desktop setup");
 
@@ -106,8 +73,6 @@ gsap.from(sectionServicesTags, {
     duration: duration, 
     stagger: 0.5 
 });
-
-// Sectioт What-We-Do
 let sectionServicesAnimation = gsap.timeline({
     scrollTrigger: {
         trigger: sectionServices,
@@ -120,8 +85,6 @@ let sectionServicesAnimation = gsap.timeline({
 sectionServicesAnimation
     .to('.digital', { y: '25rem' }) 
     .to('.technology', { y: '15rem' });   
-
-//Section About
 const easing = 'power3.inOut';
 const sectionAbout = document.querySelector('.section_about');
 const textSectionAbout = sectionAbout.querySelector('#text-about');
@@ -163,7 +126,6 @@ aboutImagesAnimation.from('.image-about', {
     duration: duration,
     ease: easing,
 });
-//Section Aproach
 gsap.set('.dropdown-list', { autoAlpha: 0, height: 0 });
 const dropdowns = document.querySelectorAll('.dropdown');
 const primaryDarkColor = '#51B613'; // Установим HEX цвет
@@ -211,7 +173,6 @@ dropdowns.forEach((dropdownItem, dropdownIndex) => {
         headingItem.textContent = formatNumberDropdown;
     });
 });
-//Section Gallery
 const projectContainer = document.querySelector(".gellary_scroll"); 
 
 if (projectContainer) {
@@ -264,7 +225,7 @@ if (projectContainer) {
 } else {
   console.error("Элемент с классом .gellary_scroll не найден.");
 }
-//Section Awwards
+
 const awardItems = document.querySelectorAll('.row-1st');
 
 awardItems.forEach((item, index) => {
@@ -291,7 +252,7 @@ awardItems.forEach((item, index) => {
     });
 });
 
-//Section Footer
+
 const getFooterAnimation = gsap.timeline({
   scrollTrigger: {
     trigger: '.section-footer',
@@ -323,7 +284,7 @@ getFooterAnimation
     ease: 'power3.out',
   });
 
-//Menu
+
 const menuLinks = document.querySelectorAll('#link-menu'); 
 const getMenuAnimation = gsap.timeline({ paused: true });
 
@@ -371,10 +332,3 @@ menuLinks.forEach(link => {
 
 requestAnimationFrame(raf);
 });
-
-//Mobile
-  MatchSetup.add("(max-width: 799px)", () => {
-  console.log("Mobile setup");
-  // mobile setup code here...
-});
-
