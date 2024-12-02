@@ -28,14 +28,12 @@ display: none !important;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js">
 </script> 
 
-//mobile
-
-
+//Desctop
  let MatchSetup = gsap.matchMedia();
 MatchSetup.add("(min-width: 800px)", () => {
   console.log("Desktop setup");
-
-//lenis
+  
+  //lenis
 
 const lenis = new Lenis();
 function raf(time) {
@@ -63,7 +61,7 @@ let getHeroSectionAnimation = gsap.timeline({
 });
 
 getHeroSectionAnimation 
-.fromTo('.logo', 
+  .fromTo('.logo', 
     {x: () => header.offsetWidth, xPercent: -103, width: '37rem'}, 
     {x: 0, xPercent: 0, duration: duration,ease: animationEasing,width: '6.25rem'}, 1) // from -> to
   
@@ -73,27 +71,26 @@ getHeroSectionAnimation
     duration: duration,
     ease: animationEasing,}, 1.2) // delayed by 1.2 seconds
   
-  .from('.line', {
+    .from('.line', {
     scaleX: 0,
     transformOrigin: "right center",
     duration: duration,
     ease: animationEasing,}, 1.2) // delayed by 1.2 seconds
   
-
-  .from('.header-menu > .row-8 > .nav-link', {
+    .from('.header-menu > .row-8 > .nav-link', {
     autoAlpha: 0,
     yPercent: 15,
     stagger: 0.1,
     duration: duration,
     ease: animationEasing}, 1.5) // delayed by 1.5 seconds
   
-  .from('.content-hero', {
+    .from('.content-hero', {
     yPercent: 15,
     autoAlpha: 0,
     duration: duration,
     ease: animationEasing,}, 1.5) // delayed by 1.5 seconds
   
-  .fromTo('.image', 
+    .fromTo('.image', 
     { width: '0%' }, 
     { width: '100%', duration: duration, ease: animationEasing }, 1.7) // delayed by 1.7 seconds
 
@@ -163,6 +160,7 @@ aboutImagesAnimation.from('.image-about', {
     duration: duration,
     ease: easing,
 });
+
 //Section Aproach
 gsap.set('.dropdown-list', { autoAlpha: 0, height: 0 });
 const dropdowns = document.querySelectorAll('.dropdown');
@@ -211,6 +209,7 @@ dropdowns.forEach((dropdownItem, dropdownIndex) => {
         headingItem.textContent = formatNumberDropdown;
     });
 });
+
 //Section Gallery
 const projectContainer = document.querySelector(".gellary_scroll"); 
 
@@ -264,6 +263,7 @@ if (projectContainer) {
 } else {
   console.error("Элемент с классом .gellary_scroll не найден.");
 }
+
 //Section Awwards
 const awardItems = document.querySelectorAll('.row-1st');
 
@@ -278,13 +278,13 @@ awardItems.forEach((item, index) => {
         delay: index * 0.1       
     });
 
-   
+
     item.addEventListener('mouseenter', () => {
         console.log('сработал hover IN');
         awardImgAnimation.play(); 
     });
 
-    
+
     item.addEventListener('mouseleave', () => {
         console.log('сработал hover OUT');
         awardImgAnimation.reverse(); 
