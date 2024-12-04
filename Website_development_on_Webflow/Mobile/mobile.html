@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="/Mobile/Mobile.js"></script>
+  </body>
+</html>
+
+<style>
+  html {
+    font-size: 16px;
+  }
+</style>
+
+<style>
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+</style>

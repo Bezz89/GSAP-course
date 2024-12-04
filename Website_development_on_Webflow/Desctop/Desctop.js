@@ -1,7 +1,3 @@
-<script src="main.js" async></script>
-<script src="lazy-load.js" async></script>
-<script src="script.js" defer></script>
-
 
 <style type="text/css">
 .w-webflow-badge {
@@ -28,12 +24,12 @@ display: none !important;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js">
 </script> 
 
-//Desctop
+
  let MatchSetup = gsap.matchMedia();
 MatchSetup.add("(min-width: 800px)", () => {
   console.log("Desktop setup");
-  
-  //lenis
+
+//Lenis- плавная прокрутка
 
 const lenis = new Lenis();
 function raf(time) {
@@ -41,7 +37,8 @@ function raf(time) {
   requestAnimationFrame(raf);
 }
 
-//hero
+//Section Hero
+
 console.log(document.querySelector('.logo'));
 console.log(document.querySelector('.line'));
 console.log(document.querySelectorAll('.header-menu > .row-8 > .nav-link'));
@@ -61,7 +58,7 @@ let getHeroSectionAnimation = gsap.timeline({
 });
 
 getHeroSectionAnimation 
-  .fromTo('.logo', 
+.fromTo('.logo', 
     {x: () => header.offsetWidth, xPercent: -103, width: '37rem'}, 
     {x: 0, xPercent: 0, duration: duration,ease: animationEasing,width: '6.25rem'}, 1) // from -> to
   
@@ -71,40 +68,43 @@ getHeroSectionAnimation
     duration: duration,
     ease: animationEasing,}, 1.2) // delayed by 1.2 seconds
   
-    .from('.line', {
+  .from('.line', {
     scaleX: 0,
     transformOrigin: "right center",
     duration: duration,
     ease: animationEasing,}, 1.2) // delayed by 1.2 seconds
   
-    .from('.header-menu > .row-8 > .nav-link', {
+
+  .from('.header-menu > .row-8 > .nav-link', {
     autoAlpha: 0,
     yPercent: 15,
     stagger: 0.1,
     duration: duration,
     ease: animationEasing}, 1.5) // delayed by 1.5 seconds
   
-    .from('.content-hero', {
+  .from('.content-hero', {
     yPercent: 15,
     autoAlpha: 0,
     duration: duration,
     ease: animationEasing,}, 1.5) // delayed by 1.5 seconds
   
-    .fromTo('.image', 
+  .fromTo('.image', 
     { width: '0%' }, 
     { width: '100%', duration: duration, ease: animationEasing }, 1.7) // delayed by 1.7 seconds
 
 .from('.vertical_line', {height:'0%', duration: duration, ease: animationEasing }, 1.7)
+
+//Section What-We-Do
+
 const sectionServices = document.querySelector('.section_what-we-do'); // Исправлено selector
 const sectionServicesTags = sectionServices.querySelectorAll('#step-by-step'); // Исправлено selector
+
 gsap.from(sectionServicesTags, {
     autoAlpha: 0, 
     ease: animationEasing, 
     duration: duration, 
     stagger: 0.5 
 });
-
-// Sectioт What-We-Do
 let sectionServicesAnimation = gsap.timeline({
     scrollTrigger: {
         trigger: sectionServices,
@@ -116,9 +116,10 @@ let sectionServicesAnimation = gsap.timeline({
 });
 sectionServicesAnimation
     .to('.digital', { y: '25rem' }) 
-    .to('.technology', { y: '15rem' });   
+    .to('.technology', { y: '15rem' });  
+    
+    //Section About
 
-//Section About
 const easing = 'power3.inOut';
 const sectionAbout = document.querySelector('.section_about');
 const textSectionAbout = sectionAbout.querySelector('#text-about');
@@ -161,7 +162,8 @@ aboutImagesAnimation.from('.image-about', {
     ease: easing,
 });
 
-//Section Aproach
+//Section Aproach (dropdown)
+
 gsap.set('.dropdown-list', { autoAlpha: 0, height: 0 });
 const dropdowns = document.querySelectorAll('.dropdown');
 const primaryDarkColor = '#51B613'; // Установим HEX цвет
@@ -205,12 +207,12 @@ dropdowns.forEach((dropdownItem, dropdownIndex) => {
     const headingDropdownNumber = dropdownItem.querySelectorAll('h4');
     headingDropdownNumber.forEach((headingItem) => {
         const formatNumberDropdown = (dropdownIndex + 1) < 10 ? `0${dropdownIndex + 1}` : `${dropdownIndex + 1}`;
-
         headingItem.textContent = formatNumberDropdown;
     });
 });
 
-//Section Gallery
+//Section Gallery (scroll)
+
 const projectContainer = document.querySelector(".gellary_scroll"); 
 
 if (projectContainer) {
@@ -265,6 +267,7 @@ if (projectContainer) {
 }
 
 //Section Awwards
+
 const awardItems = document.querySelectorAll('.row-1st');
 
 awardItems.forEach((item, index) => {
@@ -278,13 +281,13 @@ awardItems.forEach((item, index) => {
         delay: index * 0.1       
     });
 
-
+   
     item.addEventListener('mouseenter', () => {
         console.log('сработал hover IN');
         awardImgAnimation.play(); 
     });
 
-
+    
     item.addEventListener('mouseleave', () => {
         console.log('сработал hover OUT');
         awardImgAnimation.reverse(); 
@@ -292,6 +295,7 @@ awardItems.forEach((item, index) => {
 });
 
 //Section Footer
+
 const getFooterAnimation = gsap.timeline({
   scrollTrigger: {
     trigger: '.section-footer',
@@ -323,7 +327,9 @@ getFooterAnimation
     ease: 'power3.out',
   });
 
-//Menu
+
+//Menu (dropdown)
+
 const menuLinks = document.querySelectorAll('#link-menu'); 
 const getMenuAnimation = gsap.timeline({ paused: true });
 
@@ -371,10 +377,3 @@ menuLinks.forEach(link => {
 
 requestAnimationFrame(raf);
 });
-
-//Mobile
-  MatchSetup.add("(max-width: 799px)", () => {
-  console.log("Mobile setup");
-  // mobile setup code here...
-});
-
